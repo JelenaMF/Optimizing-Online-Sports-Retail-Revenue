@@ -152,3 +152,24 @@
 <p>We can see the database contains 3,179 products in total. Of the columns we previewed, only one &mdash; <code>last_visited</code> &mdash; is missing more than five percent of its values. Now let's turn our attention to pricing. </p>
 <p>How do the price points of Nike and Adidas products differ? Answering this question can help us build a picture of the company's stock range and customer market. We will run a query to produce a distribution of the <code>listing_price</code> and the count for each price, grouped by <code>brand</code>. </p>
 
+## 3. Labeling price ranges
+<p>It turns out there are 77 unique prices for the products in our database, which makes the output of our last query quite difficult to analyze. </p>
+<p>Let's build on our previous query by assigning labels to different price ranges, grouping by <code>brand</code> and <code>label</code>. We will also include the total <code>revenue</code> for each price range and <code>brand</code>. </p>
+
+## 4. Average discount by brand
+<p>Interestingly, grouping products by brand and price range allows us to see that Adidas items generate more total revenue regardless of price category! Specifically, <code>"Elite"</code> Adidas products priced \$129 or more typically generate the highest revenue, so the company can potentially increase revenue by shifting their stock to have a larger proportion of these products!</p>
+<p>Note we have been looking at <code>listing_price</code> so far. The <code>listing_price</code> may not be the price that the product is ultimately sold for. To understand <code>revenue</code> better, let's take a look at the <code>discount</code>, which is the percent reduction in the <code>listing_price</code> when the product is actually sold. We would like to know whether there is a difference in the amount of <code>discount</code> offered between brands, as this could be influencing <code>revenue</code>.</p>
+
+## 5. Correlation between revenue and reviews
+<p>Strangely, no <code>discount</code> is offered on Nike products! In comparison, not only do Adidas products generate the most revenue, but these products are also heavily discounted! </p>
+<p>To improve revenue further, the company could try to reduce the amount of discount offered on Adidas products, and monitor sales volume to see if it remains stable. Alternatively, it could try offering a small discount on Nike products. This would reduce average revenue for these products, but may increase revenue overall if there is an increase in the volume of Nike products sold. </p>
+<p>Now explore whether relationships exist between the columns in our database. We will check the strength and direction of a correlation between <code>revenue</code> and <code>reviews</code>. </p>
+
+## 6. Ratings and reviews by product description length
+<p>Interestingly, there is a strong positive correlation between <code>revenue</code> and <code>reviews</code>. This means, potentially, if we can get more reviews on the company's website, it may increase sales of those items with a larger number of reviews. </p>
+<p>Perhaps the length of a product's <code>description</code> might influence a product's <code>rating</code> and <code>reviews</code> &mdash; if so, the company can produce content guidelines for listing products on their website and test if this influences <code>revenue</code>. Let's check this out!</p>
+## 7. Reviews by month and brand
+<p>Unfortunately, there doesn't appear to be a clear pattern between the length of a product's <code>description</code> and its <code>rating</code>.</p>
+<p>As we know a correlation exists between <code>reviews</code> and <code>revenue</code>, one approach the company could take is to run experiments with different sales processes encouraging more reviews from customers about their purchases, such as by offering a small discount on future purchases. </p>
+<p>Let's take a look at the volume of <code>reviews</code> by month to see if there are any trends or gaps we can look to exploit.</p>
+
